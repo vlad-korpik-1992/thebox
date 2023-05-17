@@ -11,3 +11,11 @@ $(function() {
 	  	}
 	});
 });
+$(document).ready(function() {
+	$('.about__btn__link').on('click', function (e) {
+        e.preventDefault();
+        $('.about__inner__hidden').addClass('about__inner__show');
+		$('.about__inner__show').removeClass('about__inner__hidden');
+		$('.about__btn').remove();
+	});
+})
