@@ -663,6 +663,7 @@ section{
     margin-left: -9px;
     margin-right: -9px;
     padding-top: 35px;
+    padding-bottom: 55px;
 }
 .products__box__half__imglink{
     display: flex;
@@ -682,6 +683,12 @@ section{
 }
 .products__box__half__imglink--drinks:hover img{
     transform: rotate(45deg);
+}
+.products__box__half__imglink--snacks img{
+    transition: 0.3s all;
+}
+.products__box__half__imglink--snacks:hover img{
+    transform: scale(1.05);
 }
 .products__box__half__info{
     display: flex;
