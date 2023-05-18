@@ -876,10 +876,11 @@ p.about__inner__show:last-child{
     color:#FFEC00;
 }
 .blog__items__link-img img{
+    width: 100%;
     transition: 1.0s all;
 }
 .blog__items__link-img:hover img{
-    transform: scale(1.1);
+    transform: scale(1.08);
 }
 .single{
     margin-bottom: 50px;
@@ -1017,4 +1018,87 @@ p.about__inner__show:last-child{
 }
 .stocks__img{
     animation: pulse 2s ease-in-out infinite;
+}
+.delivery__box{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-top: 35px;
+}
+.delivery__box__items{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.delivery__box__items:first-child{
+    flex: 0 0 45%;
+    max-width: 45%;
+}
+.delivery__box__items:first-child::after{
+    position: absolute;
+    content: '';
+    top: -35px;
+    right: -1px;
+    bottom: 0;
+    height: calc(100% + 165px);
+    width: 1px;
+    background-color: #D6D6D6;
+}
+.delivery__box__items:last-child{
+    flex: 0 0 55%;
+    max-width: 55%;
+}
+.delivery__box__items h2{
+    display: block;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    color: #171717;
+    padding-bottom: 16px;
+}
+.delivery__list{
+    padding-left: 30px;
+}
+.delivery__list__items{
+    position: relative;
+    padding-bottom: 30px;
+}
+.delivery__list__items:last-child{
+    padding-bottom: 0;
+}
+.delivery__list__items::before{
+    position: absolute;
+    top: 6px;
+    left: -30px;
+    content: '';
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;    
+}
+.delivery__list__items--grren::before{
+    border: 5px solid #31B315;
+}
+.delivery__list__items--yellow::before{
+    border: 5px solid #FED740;
+}
+.delivery__list__items--red::before{
+    border: 5px solid #EC5651;
+}
+.delivery__list__items--blue::before{
+    border: 5px solid #255985;
+}
+.delivery__list__items h3{
+    display: block;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    color: #171717;
+    padding-bottom: 16px;
+}
+.delivery__box__items p{
+    display: block;
+    color: #57575C;
 }
