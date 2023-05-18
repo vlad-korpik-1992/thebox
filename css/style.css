@@ -928,18 +928,18 @@ p.about__inner__show:last-child{
 .single__box__sidebar__link:hover{
     color: #FFEC00;
 }
-.single__box__article img{
+.article img{
     display: block;
     width: 100%;
     padding-bottom: 30px;
 }
-.single__box__article p{
+.article p{
     display: block;
-    color: #57575C;
+    color: #303135;
     padding-bottom: 15px;
     text-align: justify;
 }
-.single__box__article h2, .single__box__article h3, .single__box__article h4{
+.article h2, .article h3, .article h4{
     display: block;
     font-weight: 700;
     font-size: 24px;
@@ -947,18 +947,19 @@ p.about__inner__show:last-child{
     color: #171717;
     padding-bottom: 20px;
 }
-.single__box__article a{
+.article a{
     color: #FFEC00;
     text-decoration: underline;
 }
-.single__box__article ul {
+.article ul {
     padding-left: 15px;
+    padding-bottom: 15px;
 }
-.single__box__article ul li {
+.article ul li {
     list-style: disc;
     padding-bottom: 5px;
 }
-.single__box__article ul li::marker{
+.article ul li::marker{
     color: #FFEC00;
 }
 .stocks__box{
@@ -1101,4 +1102,10 @@ p.about__inner__show:last-child{
 .delivery__box__items p{
     display: block;
     color: #57575C;
+}
+.policy__box{
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
 }
