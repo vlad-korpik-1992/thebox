@@ -142,6 +142,19 @@ section{
     padding: 0 22px;
     border-right: 1px solid #222222;
     height: 100%;
+    transition: 0.3s all;
+}
+.telegram-link:hover{
+    background: #39AFEC;
+    border-right: 1px solid #39AFEC;
+}
+.viber-link:hover{
+    background: #7F4DA0;
+    border-right: 1px solid #7F4DA0;
+}
+.whatsppp-link:hover{
+    background: #73B961;
+    border-right: 1px solid #73B961;
 }
 .header__social__box__items:last-child{
     border-right: none;
@@ -760,6 +773,10 @@ section{
     background-color: #FFEC00;
     border-radius: 50%;
     cursor: pointer;
+    transition: 0.3s all;
+}
+.products__box__half__price button:hover{
+    transform: scale(0.90);
 }
 .info__footer--category{
     position: relative;
@@ -1334,6 +1351,10 @@ p.about__inner__show:last-child{
     font-size: 16px;
     line-height: 19px;
     color: #171717;
+    transition: 0.3s all;
+}
+.card__box__btn__add:hover{
+    background: #FFF57B;
 }
 .card__supplements{
     display: flex;
