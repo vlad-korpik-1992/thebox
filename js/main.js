@@ -28,6 +28,10 @@ $(document).ready(function() {
 		jQuery("#"+idSvg).toggleClass('card__svg--active');	
 	});
 	/* Tabs */
+	$('.card__box__nutrition').on('click', function (e) {
+		e.preventDefault();
+		$('.nutrition__box').toggleClass('nutrition__box--active');
+	});
 	$('.normal').on('click', function (e) {
         e.preventDefault();
 		$('.card__sizes__link--active').removeClass('card__sizes__link--active');
@@ -37,6 +41,10 @@ $(document).ready(function() {
 		$('.card__picture').addClass('card__picture--pizza--normal');
 		let dataCart = $(this).attr('data-cart');
 		let dataPrice = $(this).attr('data-price');
+		let dataGramme = $(this).attr('data-gramme');
+		let blockGramme = $(this).parent().parent();
+		let grammeContent = blockGramme.find('.card__gramme');
+		grammeContent.text(dataGramme);
 		let newHref = `${ window.location.href }?add-to-cart=${ dataCart }:1`;
 		$("a.card__box__btn__add").attr("href", newHref);
 		$('.add__price').text(dataPrice);
@@ -55,6 +63,10 @@ $(document).ready(function() {
 		$('.card__picture').addClass('card__picture--pizza');
 		let dataCart = $(this).attr('data-cart');
 		let dataPrice = $(this).attr('data-price');
+		let dataGramme = $(this).attr('data-gramme');
+		let blockGramme = $(this).parent().parent();
+		let grammeContent = blockGramme.find('.card__gramme');
+		grammeContent.text(dataGramme);
 		let newHref = `${ window.location.href }?add-to-cart=${ dataCart }:1`;
 		$("a.card__box__btn__add").attr("href", newHref);
 		$('.add__price').text(dataPrice);
@@ -73,6 +85,10 @@ $(document).ready(function() {
 		$('.card__picture').addClass('card__picture--pizza--big');
 		let dataCart = $(this).attr('data-cart');
 		let dataPrice = $(this).attr('data-price');
+		let dataGramme = $(this).attr('data-gramme');
+		let blockGramme = $(this).parent().parent();
+		let grammeContent = blockGramme.find('.card__gramme');
+		grammeContent.text(dataGramme);
 		let newHref = `${ window.location.href }?add-to-cart=${ dataCart }:1`;
 		$("a.card__box__btn__add").attr("href", newHref);
 		$('.add__price').text(dataPrice);

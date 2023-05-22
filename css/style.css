@@ -1184,7 +1184,8 @@ p.about__inner__show:last-child{
     padding-left: 65px;
 }
 .card__box__items__inner h1{
-    display: block;
+    display: flex;
+    max-width: fit-content;
     font-weight: 700;
     font-size: 30px;
     line-height: 21px;
@@ -1207,6 +1208,60 @@ p.about__inner__show:last-child{
     font-size: 16px;
     line-height: 19px;
     color: #171717;
+}
+.card__box__items__inner__row{
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+}
+.card__box__nutrition{
+    display: flex;
+    flex: 1;
+    padding-left: 16px;
+}
+.card__box__nutrition__icon{
+    width: 20px;
+    height: 20px;
+}
+.nutrition__box{
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: #171717;
+    box-shadow: 0px 24px 10px rgba(0, 0, 0, 0.01), 0px 14px 8px rgba(0, 0, 0, 0.05), 0px 6px 6px rgba(0, 0, 0, 0.09), 0px 2px 3px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    display: none;
+    flex-direction: column;
+    padding: 10px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    color: #AEAEB7;
+    width: 235px;
+    max-width: 235px;
+    transition: 0.3s all;
+}
+.nutrition__box--active{
+    display: flex;
+}
+.nutrition__box__title{
+    display: flex; 
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    color: #FFFFFF;
+}
+.nutrition__box p{
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    color: #AEAEB7;
+}
+.nutrition__box__footer{
+    font-weight: 600;
 }
 .card__sizes{
     display: flex;
