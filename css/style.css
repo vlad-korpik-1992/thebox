@@ -618,7 +618,7 @@ section{
     display: block;
     font-weight: 700;
     font-size: 30px;
-    line-height: 21px;
+    line-height: 110%;
     color: #000000;
     padding-top: 9px;
 }
@@ -929,6 +929,7 @@ p.about__inner__show:last-child{
 }
 .single__box__sidebar{
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     flex: 0 0 31%;
     max-width: 31%;
@@ -949,7 +950,7 @@ p.about__inner__show:last-child{
     padding: 16px 0 32px;
     font-weight: 700;
     font-size: 20px;
-    line-height: 24px;
+    line-height: 120%;
     color: #171717;
     transition: 0.3s all;
 }
@@ -971,7 +972,7 @@ p.about__inner__show:last-child{
     display: block;
     font-weight: 700;
     font-size: 24px;
-    line-height: 29px;
+    line-height: 120%;
     color: #171717;
     padding-bottom: 20px;
 }
@@ -1640,6 +1641,10 @@ p.about__inner__show:last-child{
         font-size: 20px;
         line-height: 120%;
     }
+    .single__box__sidebar__link{
+        padding: 10px 0 30px;
+        font-size: 16px;
+    }
     .footer__box{
         flex-wrap: wrap;
         margin-left: -10px;
@@ -1689,6 +1694,28 @@ p.about__inner__show:last-child{
     .header__social__box__items {
         padding: 0 20px;
     }
+    .single__box__article{
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .single__box__sidebar{
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding-right: 0;
+    }
+    .single__box__sidebar{
+        flex-direction: row;
+        margin-left: -15px;
+    }
+    .single__box__sidebar__items{
+        flex: 0 0 50%;
+        max-width: 50%;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .single__box__sidebar__items:nth-child(2n){
+        padding-right: 0;
+    }
     .map{
         padding: 40px 15px 0;
     }
@@ -1726,6 +1753,17 @@ p.about__inner__show:last-child{
     }
     .footer{
         margin-bottom: 30px;
+    }
+    .single__box__sidebar__items{
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding-right: 0px;
+    }
+    .category__head__items h1{
+        font-size: 24px;
+    }
+    .article h2, .article h3, .article h4{
+        font-size: 20px;
     }
 }
 @media (max-width: 424px){
