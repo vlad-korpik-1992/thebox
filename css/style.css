@@ -1019,7 +1019,7 @@ p.about__inner__show:last-child{
     display: block;
     font-weight: 700;
     font-size: 24px;
-    line-height: 29px;
+    line-height: 120%;
     color: #171717;
     padding-bottom: 60px;
 }
@@ -1660,6 +1660,10 @@ p.about__inner__show:last-child{
     .footer__box__items:nth-child(2n){
         border-right: none;
     }
+    .stocks__box__inner__column h2{
+        font-size: 20px;
+        padding-bottom: 30px;
+    }
 }
 @media (max-width: 767px){
     section{
@@ -1667,6 +1671,9 @@ p.about__inner__show:last-child{
     }
     .wrapper{
         padding: 0 15px;
+    }
+    .wrapper--border{
+        padding: 0 5px;
     }
     .header__left{
         position: relative;
@@ -1764,6 +1771,13 @@ p.about__inner__show:last-child{
     }
     .article h2, .article h3, .article h4{
         font-size: 20px;
+    }
+    .stocks__box__inner__column{
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .stocks__box__inner__column h2{
+        padding-top: 15px;
     }
 }
 @media (max-width: 424px){
