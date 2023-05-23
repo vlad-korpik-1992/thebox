@@ -32,6 +32,14 @@ $(document).ready(function() {
 		e.preventDefault();
 		$('.nutrition__box').toggleClass('nutrition__box--active');
 	});
+	$('.put_in_cart').on('click', function (e) {
+		e.preventDefault();
+		$('.modal').addClass('modal--open');
+	});
+	$('.modal__close').on('click', function (e) {
+		e.preventDefault();
+		$('.modal').removeClass('modal--open');
+	});
 	$('.normal').on('click', function (e) {
         e.preventDefault();
 		$('.card__sizes__link--active').removeClass('card__sizes__link--active');
@@ -46,8 +54,14 @@ $(document).ready(function() {
 		let grammeContent = blockGramme.find('.card__gramme');
 		grammeContent.text(dataGramme);
 		let newHref = `${ window.location.href }?add-to-cart=${ dataCart }:1`;
-		$("a.card__box__btn__add").attr("href", newHref);
-		$('.add__price').text(dataPrice);
+		if($(this).hasClass('normal--modal')){
+			$("a.card__box__btn__add--modal").attr("href", newHref);
+			$('.add__price__modal').text(dataPrice);
+		}
+		else{
+			$("a.card__box__btn__add").attr("href", newHref);
+			$('.add__price').text(dataPrice);
+		}
 		$('.amount').text('1');
 		if ($('.card__supplements__box__items').hasClass('card__supplements__box__items--active')){
 			$('.card__supplements__box__items').removeClass('card__supplements__box__items--active');
@@ -68,8 +82,14 @@ $(document).ready(function() {
 		let grammeContent = blockGramme.find('.card__gramme');
 		grammeContent.text(dataGramme);
 		let newHref = `${ window.location.href }?add-to-cart=${ dataCart }:1`;
-		$("a.card__box__btn__add").attr("href", newHref);
-		$('.add__price').text(dataPrice);
+		if($(this).hasClass('small--modal')){
+			$("a.card__box__btn__add--modal").attr("href", newHref);
+			$('.add__price__modal').text(dataPrice);
+		}
+		else{
+			$("a.card__box__btn__add").attr("href", newHref);
+			$('.add__price').text(dataPrice);
+		}
 		$('.amount').text('1');
 		if ($('.card__supplements__box__items').hasClass('card__supplements__box__items--active')){
 			$('.card__supplements__box__items').removeClass('card__supplements__box__items--active');
@@ -90,8 +110,14 @@ $(document).ready(function() {
 		let grammeContent = blockGramme.find('.card__gramme');
 		grammeContent.text(dataGramme);
 		let newHref = `${ window.location.href }?add-to-cart=${ dataCart }:1`;
-		$("a.card__box__btn__add").attr("href", newHref);
-		$('.add__price').text(dataPrice);
+		if($(this).hasClass('big--modal')){
+			$("a.card__box__btn__add--modal").attr("href", newHref);
+			$('.add__price__modal').text(dataPrice);
+		}
+		else{
+			$("a.card__box__btn__add").attr("href", newHref);
+			$('.add__price').text(dataPrice);
+		}
 		$('.amount').text('1');
 		if ($('.card__supplements__box__items').hasClass('card__supplements__box__items--active')){
 			$('.card__supplements__box__items').removeClass('card__supplements__box__items--active');
@@ -100,9 +126,13 @@ $(document).ready(function() {
 	});
 	$('.amount__minus').on('click', function (e) {
 		e.preventDefault();
-		let amount = $('.amount').text();
+		let blockAmount = $(this).next('.amount');
+		let amount = blockAmount.text();
 		let blockParent = $(this).parent().parent();
 		let blockPrice = blockParent.find('.add__price');
+		if(blockParent.hasClass('card__box__btn--modal')){
+			blockPrice = blockParent.find('.add__price__modal');
+		}
 		if(Number(amount) > 1){
 			if ($('.card__supplements__box__items').hasClass('card__supplements__box__items--active')){
 				$('.card__supplements__box__items').removeClass('card__supplements__box__items--active');
@@ -113,11 +143,16 @@ $(document).ready(function() {
 			price = price.replace(/[\s,%]/g, '');
 			let newPrice = price * newAmount;
 			newPrice = newPrice.toFixed(2);
-			$('.amount').text(newAmount);
+			blockAmount.text(newAmount);
 			blockPrice.text(newPrice);
 			let dataCart = $('.card__sizes__link--active').attr('data-cart');
 			let newHref = `${ window.location.href }?add-to-cart=${ dataCart }:${ newAmount }`;
-			$("a.card__box__btn__add").attr("href", newHref);
+			if(blockParent.hasClass('card__box__btn--modal')){
+				$("a.card__box__btn__add--modal").attr("href", newHref);
+			}
+			else{
+				$("a.card__box__btn__add").attr("href", newHref);
+			}
 		}
 	});
 	$('.amount__plus').on('click', function (e) {
@@ -126,19 +161,28 @@ $(document).ready(function() {
 			$('.card__supplements__box__items').removeClass('card__supplements__box__items--active');
 			$('.supplements__checked__circle').removeClass('supplements__checked__circle--active');
 		}
-		let amount = $('.amount').text();
+		let blockAmount = $(this).prev('.amount');
+		let amount = blockAmount.text();
 		let blockParent = $(this).parent().parent();
 		let blockPrice = blockParent.find('.add__price');
+		if(blockParent.hasClass('card__box__btn--modal')){
+			blockPrice = blockParent.find('.add__price__modal');
+		}
 		let price = $('.card__sizes__link--active').attr('data-price');
 		price = price.replace(/[\s,%]/g, '');
 		let newAmount = Number(amount) + 1;
 		let newPrice = price * newAmount;
 		newPrice = newPrice.toFixed(2);
-		$('.amount').text(newAmount);
+		blockAmount.text(newAmount);
 		blockPrice.text(newPrice);
 		let dataCart = $('.card__sizes__link--active').attr('data-cart');
 		let newHref = `${ window.location.href }?add-to-cart=${ dataCart }:${ newAmount }`;
-		$("a.card__box__btn__add").attr("href", newHref);
+		if(blockParent.hasClass('card__box__btn--modal')){
+			$("a.card__box__btn__add--modal").attr("href", newHref);
+		}
+		else{
+			$("a.card__box__btn__add").attr("href", newHref);
+		}
 	});
 	$('.supplements__price__col__minus').on('click', function (e) {
 		e.preventDefault();
@@ -166,6 +210,13 @@ $(document).ready(function() {
 				$("a.card__box__btn__add").attr("href", newLink);
 				let blockBtnPrice = $('.add__price');
 				let btnPrice = $('.add__price').text();
+				if (zeroBlcok.hasClass('card__supplements__box__items--modal')){
+					btnLink = $('.card__box__btn__add--modal').prop('href');
+					newLink = btnLink.replace(searchString, newString);
+					$("a.card__box__btn__add--modal").attr("href", newLink);
+					blockBtnPrice = $('.add__price__modal');
+					btnPrice = $('.add__price__modal').text();
+				}
 				btnPrise = btnPrice.replace(/[\s,%]/g, '');
 				btnPrice = Number(btnPrice) - Number(startingPrice);
 				btnPrice = btnPrice.toFixed(2);
@@ -198,6 +249,13 @@ $(document).ready(function() {
 			$("a.card__box__btn__add").attr("href", newLink);
 			let blockBtnPrice = $('.add__price');
 			let btnPrice = $('.add__price').text();
+			if (zeroBlcok.hasClass('card__supplements__box__items--modal')){
+				btnLink = $('.card__box__btn__add--modal').prop('href');
+				newLink = btnLink.replace(searchString, newString);
+				$("a.card__box__btn__add--modal").attr("href", newLink);
+				blockBtnPrice = $('.add__price__modal');
+				btnPrice = $('.add__price__modal').text();
+			}
 			btnPrise = btnPrice.replace(/[\s,%]/g, '');
 			btnPrice = Number(btnPrice) + Number(startingPrice);
 			btnPrice = btnPrice.toFixed(2);
@@ -217,14 +275,23 @@ $(document).ready(function() {
 			if(Number(amount) == 0) {
 				amount = 1;
 			}
-			let btnLink = $('.card__box__btn__add').prop('href');
-			let stringCardIdandAmount = `,${ cartId }:${ amount }`;
-			let newLink = btnLink.replace(stringCardIdandAmount, '');
-			$("a.card__box__btn__add").attr("href", newLink);
+			let stringCardIdandAmount = `,${ cartId }:${ amount }`;		
 			let blockPrice = blockParent.find('.supplements__price__span');
 			let price = blockPrice.text();
 			let blockBtnPrice = $('.add__price');
 			let btnPrice = $('.add__price').text();
+			if($(this).hasClass('supplements__checked--modal')){
+				blockBtnPrice = $('.add__price__modal');
+				btnPrice = $('.add__price__modal').text();
+				let btnLink = $('.card__box__btn__add--modal').prop('href');
+				let newLink = btnLink.replace(stringCardIdandAmount, '');
+				$("a.card__box__btn__add--modal").attr("href", newLink);
+			}
+			else {
+				let btnLink = $('.card__box__btn__add').prop('href');
+				let newLink = btnLink.replace(stringCardIdandAmount, '');
+				$("a.card__box__btn__add").attr("href", newLink);	
+			}
 			btnPrise = btnPrice.replace(/[\s,%]/g, '');
 			btnPrice = Number(btnPrice) - Number(price);
 			btnPrice = btnPrice.toFixed(2);
@@ -240,15 +307,26 @@ $(document).ready(function() {
 			if(Number(amount) == 0) {
 				amount = 1;
 			}
-			let btnLink = $('.card__box__btn__add').prop('href');
 			let stringCardIdandAmount = `,${ cartId }:${ amount }`;
-			let newLink = btnLink + stringCardIdandAmount;
-			$("a.card__box__btn__add").attr("href", newLink);
 			let blockPrice = blockParent.find('.supplements__price__span');
 			let price = blockPrice.text();
 			let blockBtnPrice = $('.add__price');
 			let btnPrice = $('.add__price').text();
+			if($(this).hasClass('supplements__checked--modal')){
+				blockBtnPrice = $('.add__price__modal');
+				btnPrice = $('.add__price__modal').text();
+				let btnLink = $('.card__box__btn__add--modal').prop('href');
+				let newLink = btnLink + stringCardIdandAmount;
+				$("a.card__box__btn__add--modal").attr("href", newLink);
+			}
+			else {
+				let btnLink = $('.card__box__btn__add').prop('href');
+				let newLink = btnLink + stringCardIdandAmount;
+				$("a.card__box__btn__add").attr("href", newLink);
+			}
 			btnPrise = btnPrice.replace(/[\s,%]/g, '');
+			console.log(btnPrice);
+			console.log(price);
 			btnPrice = Number(btnPrice) + Number(price);
 			btnPrice = btnPrice.toFixed(2);
 			blockBtnPrice.text(btnPrice);

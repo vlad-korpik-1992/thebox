@@ -1356,6 +1356,25 @@ p.about__inner__show:last-child{
 .card__box__btn__add:hover{
     background: #FFF57B;
 }
+.card__box__btn__add--modal{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex: 0 0 213px;
+    max-width: 213px;
+    padding: 0 5px;
+    height: 60px;
+    background: #FFEC00;
+    border-radius: 100px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    color: #171717;
+    transition: 0.3s all;
+}
+.card__box__btn__add--modal:hover{
+    background: #FFF57B;
+}
 .card__supplements{
     display: flex;
     flex-direction: column;
@@ -1520,4 +1539,70 @@ p.about__inner__show:last-child{
 .card__supplements__box__items--active .supplements__price__col__minus,
 .card__supplements__box__items--active .supplements__price__col__plus{
     border: 1px solid #00CA76;
+}
+.modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: visible;
+    background: rgb(24 24 24 / 50%);
+    backdrop-filter: blur(5px);
+    z-index: -1;
+}
+.modal__body{
+    position: relative;
+    background: #FFFFFF;
+    box-shadow: 0px 278px 111px rgba(0, 0, 0, 0.01), 0px 156px 94px rgba(0, 0, 0, 0.05), 0px 69px 69px rgba(0, 0, 0, 0.09), 0px 17px 38px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+    color: #303135;
+    max-width: 780px;
+    padding: 30px;
+    transition: all 0.8s ease 0s;
+    opacity: 0;
+    margin: auto;
+    transform: perspective(600px) translate(0px, -100px) rotateX(45deg);
+    height: 498px;
+    overflow-y: scroll;
+}
+.modal__body::-webkit-scrollbar{
+    height: 7px;
+    width: 7px;
+    background: #000;
+ }
+ .modal__body::-webkit-scrollbar-thumb:vertical{
+    background: #FFEC00;
+ }
+.modal--open{
+    opacity: 1;
+    z-index: 9;
+}
+.modal--open .modal__body{
+    transform: perspective(600px) translate(0px, 0px) rotateX(0deg);
+    opacity: 1;
+    margin-top: 2%;
+}
+.modal__body .card__box__items{
+    padding-bottom: 0;
+}
+.modal__body .card__box__items:last-child{
+    border: none;
+}
+.modal__body .nutrition__box{
+    right: -30px;
+    top: 40px;
+}
+.modal__close{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+.card__box__items__inner--modal{
+    padding-left: 0;
+    padding-top: 0;
+}
+.card__box__btn--modal::before{
+    width: 0;
+    height: 0;
 }
