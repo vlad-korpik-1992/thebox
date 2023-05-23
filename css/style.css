@@ -339,7 +339,7 @@ section{
     position: relative;
     content: '';
     height: 72px;
-    width: 30px;
+    width: 100%;
     background-color: #FFEC00;
     transform: skew(20deg, 0);
 }
@@ -482,6 +482,7 @@ section{
 }
 .box{
     display: flex;
+    flex-wrap: wrap;
     margin-left: -30px;
     margin-right: -30px;
 }
@@ -503,7 +504,7 @@ section{
     display: block;
     font-weight: 600;
     font-size: 32px;
-    line-height: 39px;
+    line-height: 120%;
     color: #171717;
     padding-bottom: 30px;
 }
@@ -597,6 +598,7 @@ section{
 }
 .category__head{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
 }
@@ -648,6 +650,12 @@ section{
     line-height: 21px;
     color: #85858C;
     border-left: 1px solid #D6D6D6;
+}
+.category__head__list__link p{
+    white-space: nowrap;
+}
+.category__head__list__link--sushi p{
+    white-space: normal;
 }
 .category__head__list__link--sushi{
     flex-direction: row;
@@ -1162,8 +1170,8 @@ p.about__inner__show:last-child{
     top: 90px;
     align-items: center;
 }
-.card__box__items:last-child{
-    border-left: 1px solid #D6D6D6;
+.card__box__items:first-child{
+    border-right: 1px solid #D6D6D6;
 }
 .card__picture{
     position: relative;
@@ -1546,6 +1554,7 @@ p.about__inner__show:last-child{
     top: 0;
     left: 0;
     width: 100%;
+    max-width: calc(100% - 91px);
     height: 100%;
     opacity: 0;
     visibility: visible;
@@ -1586,8 +1595,6 @@ p.about__inner__show:last-child{
 }
 .modal__body .card__box__items{
     padding-bottom: 0;
-}
-.modal__body .card__box__items:last-child{
     border: none;
 }
 .modal__body .nutrition__box{
@@ -1670,6 +1677,65 @@ p.about__inner__show:last-child{
     .delivery__list__items h3{
         font-size: 20px;
     }
+    .products__box__half__inner{
+        flex-wrap: wrap;
+    }
+    .products__box__half__imglink{
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .products__box__half__info{
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding-top: 20px;
+    }
+    .products__box__half__price{
+        padding-top: 20px;
+    }
+    .box{
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+    .box__half{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .about__inner h2{
+        font-size: 24px;
+    }
+    .category__head__list__link{
+        font-size: 13px;
+    }
+    .info__footer--category{
+        grid-template-columns: repeat(6, 1fr);
+    }
+    .info__footer__items:nth-child(7n),
+    .info__footer__items:nth-child(8n),.info__footer__items:nth-child(9n),
+    .info__footer__items:nth-child(10n),.info__footer__items:nth-child(11n),
+    .info__footer__items:nth-child(12n){
+        display: none;
+    }
+    .modal__body{
+        padding: 30px 10px;
+        overflow-x: hidden;
+    }
+    .card__picture{
+        width: 100%;
+    }
+    .card__box__btn{
+        justify-content: space-between;
+        flex: 0 0 100%;
+        width: 100%;
+    }
+    .card__box__btn__amount{
+        flex: 0 0 80px;
+        max-width: 80px;
+    }
+    .card__box__btn__add{
+        flex: 0 0 150px;
+        max-width: fit-content;
+        padding: 0 15px;
+    }
 }
 @media (max-width: 767px){
     section{
@@ -1707,6 +1773,50 @@ p.about__inner__show:last-child{
     .header__social__box__items {
         padding: 0 20px;
     }
+    .breadcrumbs{
+        padding-top: 10px;
+    }
+    .category__head__items--column{
+        flex-direction: column;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .category__head__items--end{
+        justify-content: space-between;
+        flex: 0 0 100%;
+        max-width: calc(100% + 30px);
+        margin-right: 0;
+        margin-left: -15px;
+    }
+    .category__head__list{
+        display: flex;
+        width: 768px;
+        justify-content: space-between;
+        border-top: 1px solid #D6D6D6;
+        margin-top: 12px;
+        overflow-x: scroll;
+        align-items: stretch;
+    }
+    .category__head__list::-webkit-scrollbar{
+        height: 3px;
+        width: 3px;
+        background: #000;
+     }
+     .category__head__list::-webkit-scrollbar-thumb{
+        background: #FFEC00;
+     }
+    .category__head__list__items{
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        border-left: 1px solid #D6D6D6;
+    }
+    .category__head__list__items:first-child{
+        border-left: none;
+    }
+    .category__head__list__link{
+        border-left: none;
+    }
     .single__box__article{
         flex: 0 0 100%;
         max-width: 100%;
@@ -1737,11 +1847,59 @@ p.about__inner__show:last-child{
     .single__box__sidebar__items:nth-child(2n){
         padding-right: 0;
     }
+    .box__half{
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .category__head__items--end{
+        margin-right: 0;
+    }
+    .products__box__half:after{
+        left: -15px;
+        width: calc(100% + 30px);
+    }
     .map{
         padding: 40px 15px 0;
     }
     .footer{
         margin-left: 0;
+    }
+    .modal{
+        max-width: 100%;
+    }
+    .modal__body{
+        padding: 30px;
+    }
+    .card__box__items{
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .card__box__items:first-child{
+        position: relative;
+        top: 0;
+    }
+    .card__picture{
+        width: 50%;
+    }
+    .card__box__btn{
+        padding-top: 10px;
+        padding-bottom: 30px;
+    }
+    .card__box__btn::before{
+        left: -30px;
+        width: calc(100% + 60px);
+    }
+    .card__sizes{
+        max-width: 100%;
+    }
+    .card__box__btn__amount {
+        flex: 0 0 99px;
+        max-width: 99px;
+    }
+    .card__box__btn__add{
+        flex: 0 0 213px;
+        max-width: 213px;
+        padding: 0 5px;
     }
 }
 @media (max-width: 575px){
@@ -1810,6 +1968,19 @@ p.about__inner__show:last-child{
         width: 0;
         background-color: transparent;
     }
+    .products__box{
+        grid-template-columns: repeat(1, 1fr);
+        gap: 0 20px;
+    }
+    .products__box__half{
+        border-right: none;
+    }
+    .modal__body{
+        padding: 30px 10px;
+    }
+    .products__box__half__imglink--pizza img{
+        width: 100%;
+    }
 }
 @media (max-width: 424px){
     .header__social__box__items {
@@ -1829,6 +2000,19 @@ p.about__inner__show:last-child{
 @media (max-width: 374px){
     .blog__items__link {
         font-size: 18px;
+    }
+    .card__box__btn{
+        flex-wrap: wrap;
+    }
+    .card__box__btn__amount{
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    .card__box__btn__add{
+        flex: 0 0 100%;
+        max-width: 100%;
     }
 }
 @media (max-width: 319px){}
