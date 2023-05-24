@@ -832,7 +832,7 @@ p.about__inner__show:last-child{
     display: block;
     font-weight: 700;
     font-size: 32px;
-    line-height: 39px;
+    line-height: 120%;
     color: #FFFFFF;
 }
 .subcategory__box{
@@ -852,7 +852,7 @@ p.about__inner__show:last-child{
     position: relative;
     content: '';
     height: 89px;
-    width: 69px;
+    width: 60px;
     background-color: #FFEC00;
     clip-path: polygon(100% 0%, 75% 50%, 100% 100%, 25% 100%, 0% 50%, 25% 0%);
 }
@@ -1632,6 +1632,15 @@ p.about__inner__show:last-child{
         padding-left: 10px;
         padding-right: 10px;
     }
+    .subcategory__box__inner{
+        grid-template-columns: repeat(5, 1fr);
+    }
+    .subcategory__box__inner__items:nth-child(6n), .subcategory__box__inner__items:nth-child(7n){
+        display: none;
+    }
+    .category__head__items--sushi{
+        flex: 0 0 85%;
+    }
 }
 @media (max-width: 991px){
     .header__box__items:nth-child(2n){
@@ -1736,6 +1745,27 @@ p.about__inner__show:last-child{
         max-width: fit-content;
         padding: 0 15px;
     }
+    .subcategory__box__inner{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .subcategory__box__inner__items:nth-child(3n), .subcategory__box__inner__items:nth-child(4n), .subcategory__box__inner__items:nth-child(5n){
+        display: none;
+    }
+    .category__head__items--sushi{
+        justify-content: space-between;
+        flex: 0 0 100%;
+        max-width: calc(100% + 60px);
+        margin-right: 0;
+        margin-left: -30px;
+    }
+    .category__head__list--sushi{
+        width: 992px;
+        justify-content: space-between;
+        border-top: 1px solid #D6D6D6;
+        margin-top: 12px;
+        overflow-x: scroll;
+        align-items: stretch; 
+    }
 }
 @media (max-width: 767px){
     section{
@@ -1811,11 +1841,23 @@ p.about__inner__show:last-child{
         justify-content: center;
         border-left: 1px solid #D6D6D6;
     }
+    .category__head__list__link--sushi p {
+        white-space: nowrap;
+    }
+    .category__head__list__items--flex{
+        padding: 0 15px;
+    }
     .category__head__list__items:first-child{
         border-left: none;
     }
     .category__head__list__link{
         border-left: none;
+    }
+    .subcategory__box__inner{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .subcategory__box__inner__items:nth-child(2n){
+        display: none;
     }
     .single__box__article{
         flex: 0 0 100%;
@@ -1951,6 +1993,9 @@ p.about__inner__show:last-child{
     .stocks__box__inner__column h2{
         padding-top: 15px;
     }
+    .subcategory__box__inner{
+        display: none;
+    }
     .delivery__box__items:first-child{
         flex: 0 0 100%;
         max-width: 100%;
@@ -1980,6 +2025,9 @@ p.about__inner__show:last-child{
     }
     .products__box__half__imglink--pizza img{
         width: 100%;
+    }
+    .subcategory h2{
+        font-size: 24px;
     }
 }
 @media (max-width: 424px){
