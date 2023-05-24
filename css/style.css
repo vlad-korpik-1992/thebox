@@ -1422,7 +1422,7 @@ p.about__inner__show:last-child{
     max-width: 50%;
     font-weight: 700;
     font-size: 32px;
-    line-height: 39px;
+    line-height: 120%;
     color: #171717;
     padding-bottom: 16px;
 }
@@ -1766,6 +1766,12 @@ p.about__inner__show:last-child{
         overflow-x: scroll;
         align-items: stretch; 
     }
+    .card__box__items__inner{
+        padding-left: 0;
+    }
+    .description__box h2, .description__box h3, .description__box h4, .description__box h5, .description__box h6{
+        max-width: 100%;
+    }
 }
 @media (max-width: 767px){
     section{
@@ -1919,6 +1925,8 @@ p.about__inner__show:last-child{
     .card__box__items:first-child{
         position: relative;
         top: 0;
+        padding-bottom: 0;
+        border-right: none;
     }
     .card__picture{
         width: 50%;
@@ -1928,8 +1936,8 @@ p.about__inner__show:last-child{
         padding-bottom: 30px;
     }
     .card__box__btn::before{
-        left: -30px;
-        width: calc(100% + 60px);
+        left: -15px;
+        width: calc(100% + 30px);
     }
     .card__sizes{
         max-width: 100%;
@@ -1942,6 +1950,9 @@ p.about__inner__show:last-child{
         flex: 0 0 213px;
         max-width: 213px;
         padding: 0 5px;
+    }
+    .description__box h2, .description__box h3, .description__box h4, .description__box h5, .description__box h6{
+        font-size: 24px;
     }
 }
 @media (max-width: 575px){
