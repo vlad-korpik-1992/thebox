@@ -11,7 +11,36 @@ $(function() {
 	  	}
 	});
 });
+/* Scroll */
+window.onload = function () {
+	let scr = $(".hero__box--scroll");
+	scr.mousedown(function () {
+		let startX = this.scrollLeft + event.pageX;
+		let startY = this.scrollTop + event.pageY;
+		scr.mousemove(function () {
+			this.scrollLeft = startX - event.pageX;
+			this.scrollTop = startY - event.pageY;
+			return false;
+		});
+	});
+	$(window).mouseup(function () {
+		scr.off("mousemove");
+	});
+}
 $(document).ready(function() {
+	let windowWidth = $(window).width();
+	if(windowWidth < 767)$(".hero__discount").addClass("hero__box--scroll");
+    else $(".hero__discount").removeClass("hero__box--scroll");
+	if(windowWidth < 767)$(".hero__box").removeClass("hero__box--scroll");
+    else $(".hero__box").addClass("hero__box--scroll");
+            
+    $(window).resize(function(){
+        let windowWidth = $(window).width();
+        if(windowWidth < 767)$(".hero__discount").addClass("hero__box--scroll");
+        else $(".hero__discount").removeClass("hero__box--scroll");
+		if(windowWidth < 767)$(".hero__box").removeClass("hero__box--scroll");
+    	else $(".hero__box").addClass("hero__box--scroll");
+	});
 	$('.about__btn__link').on('click', function (e) {
         e.preventDefault();
         $('.about__inner__hidden').addClass('about__inner__show');
